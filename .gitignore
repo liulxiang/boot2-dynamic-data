@@ -1,0 +1,293 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Maven
+target/
+
+# Node
+node_modules
+dist
+dist-ssr
+dev-dist
+*.local
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.factorypath
+.factorypath
+**/.factorypath
+
+# OS generated files
+Thumbs.db
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Package Files #
+*.war
+*.ear
+*.zip
+*.tar.gz
+
+# virtual machine crash logs, see http://www.oracle.com/technetwork/java/javase/crashumps-137036.html
+hs_err_pid*
+
+# dotenv environment variables file
+.env
+.env.test
+
+# VS Code
+.history/
+
+# IntelliJ IDEA
+*.iml
+*.iws
+out/
+
+# Eclipse
+.settings/
+.project
+.classpath
+
+# NetBeans
+nbproject/private/
+build/test-results/**
+.gradle
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Database
+*.sql
+
+# Certificate files
+*.jks
+*.p12
+
+# Log files
+*.log.*
+
+# Build output directories
+bin/
+build/
+
+# Test coverage
+coverage/
+*.lcov
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Diagnostic reports
+*.dump
+
+# Docker
+docker-compose.override.yml
+
+# Vite
+.vite/
+
+# NPM
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Terminal
+.history
+
+# Editor
+*.code-workspace
+
+# Config
+config/application-*.yml
+config/application-*.yaml
+config/application-*.properties
+
+# Swagger UI
+swagger-ui.html
+
+# SonarQube
+.sonar/
+
+# Checkstyle
+checkstyle-result.xml
+checkstyle-checker.xml
+
+# PMD
+pmd.xml
+
+# FindBugs
+findbugsXml.xml
+
+# Jacoco
+jacoco/
+
+# JUnit
+junit*.properties
+TEST-*.xml
+
+# Tomcat
+tomcat.
+
+# Spring Boot
+*.jar.original
+
+# IDE specific files
+*.orig
+*.rej
+*.bak
+
+# System
+.DS_Store
+Desktop.ini
+
+# Thumbnails
+._*
+
+# Logs
+*.log
+
+# Temp
+tmp/
+temp/
+
+# Output
+output/
+
+# Reports
+reports/
+
+# Maven
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# Spring Boot specific
+BOOT-INF/
+META-INF/
+
+# JAR files
+*.jar
+
+# Class files
+**/target/classes/
+
+# Test files
+**/target/test-classes/
+
+# Generated sources
+**/target/generated-sources/
+
+# Eclipse specific
+.externalToolBuilders/
+.settings/org.eclipse.jdt.core.prefs
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IntelliJ IDEA specific
+*.iws
+*.iml
+*.ipr
+out/
+.idea/
+.idea_modules/
+*.idea/
+
+# VS Code specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/extensions.json
+
+# Vim specific
+*.swp
+*.swo
+*.un~
+
+# Emacs specific
+*~
+\#*\#
+
+# Gradle
+.gradle/
+build/
+
+# Log files
+*.log
+
+# Database files
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# IDE files
+*.orig
+*.rej
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+target/.DS_Store
+target/classes/.DS_Store
+target/classes/application.yml
+target/classes/com/.DS_Store
+target/classes/com/example/config/DynamicDataSourceConfig.class
+target/classes/com/example/controller/UserController.class
+target/classes/com/example/service/impl/UserServiceImpl.class
+target/classes/com/example/service/UserService.class
+target/maven-status/.DS_Store
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/test-classes/com/example/MultiDatasourceDemoApplicationTests.class

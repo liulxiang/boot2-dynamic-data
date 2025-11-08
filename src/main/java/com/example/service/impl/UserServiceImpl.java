@@ -5,18 +5,15 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.entity.User;
 import com.example.mapper.UserMapper;
 import com.example.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * User Service 实现类
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
-
-    @Autowired
-    private UserMapper userMapper;
 
     /**
      * 使用master数据源
@@ -26,11 +23,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public boolean save(User entity) {
         return super.save(entity);
     }
+    
     /**
      * 使用slave数据源
      */
     @DS("slave")
+    @Override
     public User getUserFromSlave(Long id) {
         return super.getById(id);
+    }
+    
+    /**
+     * 使用slave数据源获取所有用户
+     */
+    @DS("slave")
+    @Override
+    public List<User> listAllUsersFromSlave() {
+        return super.list();
     }
 }

@@ -42,6 +42,6 @@ public class UserController {
      */
     @GetMapping("/list")
     public List<User> getAllUsers() {
-        return userService.list();
+        return userService.listAllUsersFromSlave();
     }
 }

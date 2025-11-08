@@ -1,0 +1,154 @@
+# 数据源配置
+spring:
+  datasource:
+    # 默认数据源配置（当禁用多数据源时使用）
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://140.143.191.24:3306/eyang?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+    username: eyang
+    password: JwHzDiZj6PRe3e6t
+    # 动态数据源配置
+    dynamic:
+      # 是否启用多数据源，默认启用
+      enabled: false
+      primary: master # 设置默认数据源
+      strict: false # 严格模式
+      datasource:
+        master:
+          url: jdbc:mysql://localhost:3306/master_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          username: root
+          password: 12345678
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.alibaba.druid.pool.DruidDataSource
+          # Druid 配置
+          druid:
+            initial-size: 5
+            min-idle: 5
+            max-active: 20
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            validation-query: SELECT 1 FROM DUAL
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            filters: stat,wall
+            connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+        slave:
+          url: jdbc:mysql://localhost:3306/slave_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+          username: root
+          password: 12345678
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          type: com.alibaba.druid.pool.DruidDataSource
+          # Druid 配置
+          druid:
+            initial-size: 5
+            min-idle: 5
+            max-active: 20
+            max-wait: 60000
+            time-between-eviction-runs-millis: 60000
+            min-evictable-idle-time-millis: 300000
+            validation-query: SELECT 1 FROM DUAL
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            pool-prepared-statements: true
+            max-pool-prepared-statement-per-connection-size: 20
+            filters: stat,wall
+            connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    
+    druid:
+      # 主库数据源
+      master:
+        url: jdbc:mysql://140.143.191.24:3306/eyang?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        username: eyang
+        password: JwHzDiZj6PRe3e6t
+      # 从库数据源
+      slave:
+        # 从数据源开关/默认关闭
+        enabled: false
+        url: 
+        username: 
+        password: 
+      # 初始连接数
+      initialSize: 5
+      # 最小连接池数量
+      minIdle: 10
+      # 最大连接池数量
+      maxActive: 20
+      # 配置获取连接等待超时的时间
+      maxWait: 60000
+      # 配置连接超时时间
+      connectTimeout: 30000
+      # 配置网络超时时间
+      socketTimeout: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      timeBetweenEvictionRunsMillis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      minEvictableIdleTimeMillis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      maxEvictableIdleTimeMillis: 900000
+      # 配置检测连接是否有效
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      web-stat-filter: 
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
+        enabled: true
+      webStatFilter: 
+        enabled: true
+      statViewServlet:
+        enabled: true
+        # 设置白名单，不填则允许所有访问
+        allow:
+        url-pattern: /druid/*
+        # 控制台管理用户名和密码
+        login-username: admin
+        login-password: 123456
+      filter:
+        stat:
+          enabled: true
+          # 慢SQL记录
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+            multi-statement-allow: true
+
+# 数据存储配置
+data:
+  storage:
+    # 存储类型: influxdb, mysql, redis
+    type: influxdb
+    enabled: true
+    retention-time: 86400  # 24小时（秒）
+    batch-size: 100
+    write-interval: 5000   # 5秒（毫秒）
+    
+    # InfluxDB配置
+    influx:
+      url: http://140.143.191.24:8086
+      token: dTvY10bo4cmHA9VDofoXMjWj7RAZ7rpA4rbHTWo_NP793vy3FMh-T6Ucp0sDAz-2L778NLrq-MTPyf4WcVPbjA==
+      org: ems
+      bucket: ems_data
+      connection-timeout: 10000
+      read-timeout: 30000
+      write-timeout: 10000
+
+xxl-job:
+  enabled: false
+  admin:
+    addresses: http://140.143.191.24:8080/
+    accessToken: default_token
+    timeout: 3
+  executor:
+    app-name: bill-executor
+    address:
+    ip:
+    port: 8189
+    log-path: ./xxl-job/platform
+    log-retention-days: 30
